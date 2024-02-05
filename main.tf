@@ -1,7 +1,7 @@
 #Module      : labels
 #Description : Terraform module to create consistent naming for multiple names.
 module "labels" {
-  source      = "git::git@github.com:slovink/terraform-azure-labels.git"
+  source      = "git::git@github.com:slovink/terraform-azure-labels.git?ref=1.0.0"
   name        = var.name
   environment = var.environment
   managedby   = var.managedby
@@ -27,7 +27,7 @@ resource "azurerm_network_interface" "default" {
     subnet_id                     = var.private_ip_address_version == "IPv4" ? element(var.subnet_id, count.index) : ""
     private_ip_address_version    = var.private_ip_address_version
     private_ip_address_allocation = var.private_ip_address_allocation
-    public_ip_address_id          = var.public_ip_enabled ? element(azurerm_public_ip.default.*.id, count.index) : ""
+    public_ip_address_id          = var.public_ip_enabled ? element(azurerm_public_ip.default[*].id, count.index) : ""
     primary                       = var.primary
     private_ip_address            = var.private_ip_address_allocation == "Static" ? element(var.private_ip_addresses, count.index) : ""
   }
@@ -95,12 +95,12 @@ resource "azurerm_virtual_machine" "default" {
   name                             = format("%s-virtual-machine-%s", module.labels.id, count.index + 1)
   resource_group_name              = var.resource_group_name
   location                         = var.location
-  network_interface_ids            = [element(azurerm_network_interface.default.*.id, count.index)]
+  network_interface_ids            = [element(azurerm_network_interface.default[*].id, count.index)]
   vm_size                          = var.vm_size
-  availability_set_id              = join("", azurerm_availability_set.default.*.id)
+  availability_set_id              = join("", azurerm_availability_set.default[*].id)
   delete_os_disk_on_termination    = var.delete_os_disk_on_termination
   delete_data_disks_on_termination = var.delete_data_disks_on_termination
-  primary_network_interface_id     = element(azurerm_network_interface.default.*.id, count.index)
+  primary_network_interface_id     = element(azurerm_network_interface.default[*].id, count.index)
   proximity_placement_group_id     = var.proximity_placement_group_id
   zones                            = var.zones
   tags                             = module.labels.tags
@@ -237,13 +237,13 @@ resource "azurerm_virtual_machine" "win_vm" {
   name                  = format("%s-win-virtual-machine-%s", module.labels.id, count.index + 1)
   resource_group_name   = var.resource_group_name
   location              = var.location
-  network_interface_ids = [element(azurerm_network_interface.default.*.id, count.index)]
+  network_interface_ids = [element(azurerm_network_interface.default[*].id, count.index)]
   vm_size               = var.vm_size
 
-  availability_set_id              = join("", azurerm_availability_set.default.*.id)
+  availability_set_id              = join("", azurerm_availability_set.default[*].id)
   delete_os_disk_on_termination    = var.delete_os_disk_on_termination
   delete_data_disks_on_termination = var.delete_data_disks_on_termination
-  primary_network_interface_id     = element(azurerm_network_interface.default.*.id, count.index)
+  primary_network_interface_id     = element(azurerm_network_interface.default[*].id, count.index)
   proximity_placement_group_id     = var.proximity_placement_group_id
   zones                            = var.zones
   tags                             = module.labels.tags
@@ -320,3 +320,4 @@ resource "azurerm_network_interface_security_group_association" "default" {
   network_interface_id      = azurerm_network_interface.default[count.index].id
   network_security_group_id = var.network_security_group_id
 }
+

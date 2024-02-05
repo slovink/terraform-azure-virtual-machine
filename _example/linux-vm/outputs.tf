@@ -4,7 +4,7 @@ output "resource_group_name" {
 }
 
 output "virtual_network_name" {
-  value       = module.vnet.vnet_name
+  value       = module.vnet.name
   description = "The name of the virtual network in which the subnet is created in."
 }
 
@@ -34,7 +34,7 @@ output "public_ip_address" {
 }
 
 output "virtual_machine_id" {
-  value       = join("", module.virtual-machine.*.virtual_machine_id)
+  value       = join("", module.virtual-machine[*].virtual_machine_id)
   description = "The ID of the Virtual Machine."
 }
 
@@ -42,3 +42,6 @@ output "tags" {
   value       = module.virtual-machine.tags
   description = "The tags associated to resources."
 }
+
+
+
