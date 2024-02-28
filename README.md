@@ -12,9 +12,9 @@
 <p align="center">
 
 <a href="https://www.terraform.io">
-  <img src="https://img.shields.io/badge/Terraform-v1.1.7-green" alt="Terraform">
+  <img src="https://img.shields.io/badge/Terraform-v1.7.4-green" alt="Terraform">
 </a>
-<a href="LICENSE.md">
+<a href="https://github.com/slovink/terraform-azure-virtual-machine/blob/master/LICENSE">
   <img src="https://img.shields.io/badge/License-APACHE-blue.svg" alt="Licence">
 </a>
 
@@ -47,9 +47,7 @@ Here is an example of how you can use this module in your inventory structure:
   ```hcl
 
 module "virtual-machine" {
-  source = "../../"
-
-  ## Tags
+  source      = "https://github.com/slovink/terraform-azure-virtual-machine.git?ref=1.0.0"
   name        = "app"
   environment = "test"
   label_order = ["environment", "name"]
@@ -107,7 +105,7 @@ module "virtual-machine" {
   ```
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/slovink/terraform-azure-virtual-machine/blob/krishan/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/slovink/terraform-azure-virtual-machine/blob/dev/LICENSE) file for details.
 
 
 
@@ -119,9 +117,9 @@ If you have found it worth your time, go ahead and give us a ★ on [our GitHub]
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.6.6 |
+| Name | Version  |
+|------|----------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.7.4  |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=3.87.0 |
 
 ## Providers

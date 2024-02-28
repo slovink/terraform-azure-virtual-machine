@@ -1,0 +1,96 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name : Terraform AZURE VIRTUAL MACHINE
+
+# License of this project
+license: "MIT"
+
+# Canonical GitHub repo
+github_repo: git@github.com:slovink/terraform-azure-virtual-machine.git
+
+# Badges to display
+badges:
+  - name: "Terraform"
+    image: "https://img.shields.io/badge/Terraform-v1.7.4-green"
+    url: "https://www.terraform.io"
+  - name: "Licence"
+    image: "https://img.shields.io/badge/License-MIT-blue.svg"
+    url: "https://github.com/slovink/terraform-azure-virtual-machine/blob/master/LICENSE"
+
+#  description of this project
+description: |-
+  Terraform module to create Azure virtual-machine service resource on AZURE.
+# extra content
+include:
+  - "terraform.md"
+
+# How to use this project
+# How to use this project
+usage: |-
+  Here are some examples of how you can use this module in your inventory structure:
+  ### azure virtual-machine
+  ```hcl
+    # Basic
+  
+  module "virtual-machine" {
+  source = "../../"
+
+  ## Tags
+  name        = "app"
+  environment = "test"
+  label_order = ["environment", "name"]
+
+  ## Common
+  is_vm_linux                     = true
+  enabled                         = true
+  machine_count                   = 1
+  resource_group_name             = module.resource_group.resource_group_name
+  location                        = module.resource_group.resource_group_location
+  disable_password_authentication = true
+
+  ## Network Interface
+  subnet_id                     = module.subnet.default_subnet_id
+  private_ip_address_version    = "IPv4"
+  private_ip_address_allocation = "Static"
+  primary                       = true
+  private_ip_addresses          = ["10.0.1.4"]
+  #nsg
+  network_interface_sg_enabled = true
+  network_security_group_id    = module.security_group.id
+
+  ## Availability Set
+  availability_set_enabled     = true
+  platform_update_domain_count = 7
+  platform_fault_domain_count  = 3
+
+  ## Public IP
+  public_ip_enabled = true
+  sku               = "Basic"
+  allocation_method = "Static"
+  ip_version        = "IPv4"
+
+
+  ## Virtual Machine
+  linux_enabled      = true
+  vm_size            = "Standard_B1s"
+  public_key         = "ssh-rsa V2SNzyeBuk= krishna@krishna"
+  username           = "ubuntu"
+  os_profile_enabled = true
+  admin_username     = "ubuntu"
+  # admin_password                  = "P@ssw0rd!123!" # It is compulsory when disable_password_authentication = false
+  create_option                   = "FromImage"
+  caching                         = "ReadWrite"
+  disk_size_gb                    = 30
+  os_type                         = "Linux"
+  managed_disk_type               = "Standard_LRS"
+  storage_image_reference_enabled = true
+  image_publisher                 = "Canonical"
+  image_offer                     = "0001-com-ubuntu-server-focal"
+  image_sku                       = "20_04-lts"
+  image_version                   = "latest"
+}
