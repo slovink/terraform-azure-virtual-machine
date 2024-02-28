@@ -117,9 +117,9 @@ If you have found it worth your time, go ahead and give us a ★ on [our GitHub]
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name | Version  |
-|------|----------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.7.4  |
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.7.4 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=3.87.0 |
 
 ## Providers
@@ -132,7 +132,7 @@ If you have found it worth your time, go ahead and give us a ★ on [our GitHub]
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | git::git@github.com:slovink/terraform-azure-labels.git | 1.0.0 |
+| <a name="module_labels"></a> [labels](#module\_labels) | https://github.com/slovink/terraform-azure-labels.git | 1.0.0 |
 
 ## Resources
 
