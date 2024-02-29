@@ -27,7 +27,6 @@ output "public_ip_id" {
   value       = module.virtual-machine.public_ip_id
   description = "The Public IP ID."
 }
-
 output "public_ip_address" {
   value       = module.virtual-machine.public_ip_address
   description = "The IP address value that was allocated."

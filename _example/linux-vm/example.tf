@@ -113,7 +113,6 @@ module "virtual-machine" {
   allocation_method = "Static"
   ip_version        = "IPv4"
 
-
   ## Virtual Machine
   linux_enabled      = true
   vm_size            = "Standard_B1s"

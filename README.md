@@ -107,6 +107,9 @@ module "virtual-machine" {
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/slovink/terraform-azure-virtual-machine/blob/dev/LICENSE) file for details.
 
+## Examples
+For detailed examples on how to use this module, please refer to the [Examples](https://github.com/slovink/terraform-azure-virtual-machine/tree/dev/_example) directory within this repository.
+
 
 
 ## Feedback
