@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 module "resource_group" {
-  source  = "git::git@github.com:slovink/terraform-azure-resource-group.git"
+  source = "git::git@github.com:slovink/terraform-azure-resource-group.git?ref=1.0.0"
 
   name        = "app-vm"
   environment = "test"
@@ -12,7 +12,7 @@ module "resource_group" {
 }
 
 module "vnet" {
-  source  = "git::git@github.com:slovink/terraform-azure-vnet.git"
+  source = "git::git@github.com:slovink/terraform-azure-vnet.git?ref=1.0.0"
 
   name                = "app"
   environment         = "test"
@@ -24,15 +24,14 @@ module "vnet" {
 }
 
 module "subnet" {
-  source  = "git::git@github.com:slovink/terraform-azure-subnet.git"
+  source = "git::git@github.com:slovink/terraform-azure-subnet.git?ref=1.0.0"
 
   name                 = "app"
   environment          = "test"
   label_order          = ["name", "environment"]
   resource_group_name  = module.resource_group.resource_group_name
   location             = module.resource_group.resource_group_location
-  virtual_network_name = join("", module.vnet.vnet_name)
-
+  virtual_network_name = module.vnet.name
   #subnet
   default_name_subnet = true
   subnet_names        = ["subnet1", "subnet2"]
@@ -50,7 +49,7 @@ module "subnet" {
 }
 
 module "security_group" {
-  source  = "git::git@github.com:slovink/terraform-azure-network-security-group.git"
+  source = "git::git@github.com:slovink/terraform-azure-network-security-group.git?ref=1.0.0"
   ## Tags
   name        = "app"
   environment = "test"
@@ -114,11 +113,10 @@ module "virtual-machine" {
   allocation_method = "Static"
   ip_version        = "IPv4"
 
-
   ## Virtual Machine
   linux_enabled      = true
   vm_size            = "Standard_B1s"
-  public_key         = "ssh-rsa AAAAB3NzaC1yc2EoL9X+2+4Xb dev" # Enter valid public key here
+  public_key         = "ssh-rsa V2SNzyeBuk= krishna@krishna"
   username           = "ubuntu"
   os_profile_enabled = true
   admin_username     = "ubuntu"

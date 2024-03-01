@@ -6,11 +6,11 @@ variable "name" {
   description = "Name  (e.g. `app` or `cluster`)."
 }
 
-variable "application" {
-  type        = string
-  default     = ""
-  description = ""
-}
+#variable "application" {
+#  type        = string
+#  default     = ""
+#  description = ""
+#}
 
 variable "environment" {
   type        = string
@@ -18,16 +18,16 @@ variable "environment" {
   description = "Environment (e.g. `prod`, `dev`, `staging`)."
 }
 
-variable "tags" {
-  type        = map(any)
-  default     = {}
-  description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)."
-}
+#variable "tags" {
+#  type        = map(any)
+#  default     = {}
+#  description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)."
+#}
 
 variable "managedby" {
   type        = string
-  default     = ""
-  description = ""
+  default     = "contact@slovink.com"
+  description = "slovink"
 }
 
 variable "label_order" {
@@ -243,95 +243,95 @@ variable "boot_diagnostics_enabled" {
   description = "Whether boot diagnostics block is enabled."
 }
 
-variable "account_kind" {
-  type        = string
-  default     = "StorageV2"
-  description = "Defines the Kind of account. Valid options are BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2."
-}
+#variable "account_kind" {
+#  type        = string
+#  default     = "StorageV2"
+#  description = "Defines the Kind of account. Valid options are BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2."
+#}
 
-variable "account_tier" {
-  type        = string
-  default     = ""
-  description = "Defines the Tier to use for this storage account. Valid options are Standard and Premium."
-}
+#variable "account_tier" {
+#  type        = string
+#  default     = ""
+#  description = "Defines the Tier to use for this storage account. Valid options are Standard and Premium."
+#}
 
-variable "account_replication_type" {
-  type        = string
-  default     = ""
-  description = "Defines the type of replication to use for this storage account. Valid options are LRS, GRS, RAGRS, ZRS, GZRS and RAGZRS."
-}
+#variable "account_replication_type" {
+#  type        = string
+#  default     = ""
+#  description = "Defines the type of replication to use for this storage account. Valid options are LRS, GRS, RAGRS, ZRS, GZRS and RAGZRS."
+#}
 
-variable "access_tier" {
-  type        = string
-  default     = "Hot"
-  description = "Defines the access tier for BlobStorage, FileStorage and StorageV2 accounts. Valid options are Hot and Cool, defaults to Hot."
-}
+#variable "access_tier" {
+#  type        = string
+#  default     = "Hot"
+#  description = "Defines the access tier for BlobStorage, FileStorage and StorageV2 accounts. Valid options are Hot and Cool, defaults to Hot."
+#}
 
-variable "enable_https_traffic_only" {
-  type        = bool
-  default     = true
-  description = "Boolean flag which forces HTTPS if enabled. Defaults to true."
-}
+#variable "enable_https_traffic_only" {
+#  type        = bool
+#  default     = true
+#  description = "Boolean flag which forces HTTPS if enabled. Defaults to true."
+#}
 
-variable "is_hns_enabled" {
-  type        = bool
-  default     = false
-  description = "Is Hierarchical Namespace enabled?."
-}
+#variable "is_hns_enabled" {
+#  type        = bool
+#  default     = false
+#  description = "Is Hierarchical Namespace enabled?."
+#}
 
-variable "blob_properties_enabled" {
-  type        = bool
-  default     = false
-  description = "Is blob properties is enabled."
-}
+#variable "blob_properties_enabled" {
+#  type        = bool
+#  default     = false
+#  description = "Is blob properties is enabled."
+#}
 
-variable "allowed_headers" {
-  type        = list(any)
-  default     = []
-  description = "A list of headers that are allowed to be a part of the cross-origin request."
-}
+#variable "allowed_headers" {
+#  type        = list(any)
+#  default     = []
+#  description = "A list of headers that are allowed to be a part of the cross-origin request."
+#}
 
-variable "allowed_methods" {
-  type        = list(any)
-  default     = []
-  description = "A list of http headers that are allowed to be executed by the origin. Valid options are DELETE, GET, HEAD, MERGE, POST, OPTIONS, PUT or PATCH."
-}
+#variable "allowed_methods" {
+#  type        = list(any)
+#  default     = []
+#  description = "A list of http headers that are allowed to be executed by the origin. Valid options are DELETE, GET, HEAD, MERGE, POST, OPTIONS, PUT or PATCH."
+#}
 
-variable "allowed_origins" {
-  type        = list(any)
-  default     = []
-  description = "A list of origin domains that will be allowed by CORS."
-}
+#variable "allowed_origins" {
+#  type        = list(any)
+#  default     = []
+#  description = "A list of origin domains that will be allowed by CORS."
+#}
 
-variable "exposed_headers" {
-  type        = list(any)
-  default     = []
-  description = "A list of response headers that are exposed to CORS clients."
-}
+#variable "exposed_headers" {
+#  type        = list(any)
+#  default     = []
+#  description = "A list of response headers that are exposed to CORS clients."
+#}
 
-variable "max_age_in_seconds" {
-  type        = number
-  default     = 60
-  description = "The number of seconds the client should cache a preflight response."
-}
+#variable "max_age_in_seconds" {
+#  type        = number
+#  default     = 60
+#  description = "The number of seconds the client should cache a preflight response."
+#}
 
-variable "days" {
-  type        = number
-  default     = 7
-  description = "Specifies the number of days that the blob should be retained, between 1 and 365 days. Defaults to 7."
-}
+#variable "days" {
+#  type        = number
+#  default     = 7
+#  description = "Specifies the number of days that the blob should be retained, between 1 and 365 days. Defaults to 7."
+#}
 
-variable "custom_domain_enabled" {
-  type        = bool
-  default     = false
-  description = "Whether custom domain is enabled."
-}
+#variable "custom_domain_enabled" {
+#  type        = bool
+#  default     = false
+#  description = "Whether custom domain is enabled."
+#}
 
-variable "use_subdomain" {
-  type        = bool
-  default     = false
-  description = "Should the Custom Domain Name be validated by using indirect CNAME validation?."
-}
+#variable "use_subdomain" {
+#  type        = bool
+#  default     = false
+#  description = "Should the Custom Domain Name be validated by using indirect CNAME validation?."
+#}
 
 variable "identity_enabled" {
   type        = bool
@@ -339,101 +339,101 @@ variable "identity_enabled" {
   description = "Whether identity block is enabled."
 }
 
-variable "sa_type" {
-  type        = string
-  default     = "SystemAssigned"
-  description = "Specifies the identity type of the Storage Account. At this time the only allowed value is SystemAssigned."
-}
+#variable "sa_type" {
+#  type        = string
+#  default     = "SystemAssigned"
+#  description = "Specifies the identity type of the Storage Account. At this time the only allowed value is SystemAssigned."
+#}
 
-variable "queue_properties_enabled" {
-  type        = bool
-  default     = false
-  description = "Whether queue properties is enabled."
-}
+#variable "queue_properties_enabled" {
+#  type        = bool
+#  default     = false
+#  description = "Whether queue properties is enabled."
+#}
 
-variable "log_delete" {
-  type        = bool
-  default     = false
-  description = "Indicates whether all delete requests should be logged."
-}
+#variable "log_delete" {
+#  type        = bool
+#  default     = false
+#  description = "Indicates whether all delete requests should be logged."
+#}
 
-variable "log_read" {
-  type        = bool
-  default     = false
-  description = "Indicates whether all read requests should be logged."
-}
+#variable "log_read" {
+#  type        = bool
+#  default     = false
+#  description = "Indicates whether all read requests should be logged."
+#}
 
-variable "log_version" {
-  type        = string
-  default     = ""
-  description = "The version of storage analytics to configure."
-}
+#variable "log_version" {
+#  type        = string
+#  default     = ""
+#  description = "The version of storage analytics to configure."
+#}
 
-variable "log_write" {
-  type        = bool
-  default     = false
-  description = "Indicates whether all write requests should be logged."
-}
+#variable "log_write" {
+#  type        = bool
+#  default     = false
+#  description = "Indicates whether all write requests should be logged."
+#}
 
-variable "retention_policy_days" {
-  type        = number
-  default     = 7
-  description = "Specifies the number of days that logs will be retained."
-}
+#variable "retention_policy_days" {
+#  type        = number
+#  default     = 7
+#  description = "Specifies the number of days that logs will be retained."
+#}
 
-variable "minute_metrics_enabled" {
-  type        = bool
-  default     = false
-  description = "Indicates whether minute metrics are enabled for the Queue service."
-}
+#variable "minute_metrics_enabled" {
+#  type        = bool
+#  default     = false
+#  description = "Indicates whether minute metrics are enabled for the Queue service."
+#}
 
-variable "include_apis" {
-  type        = bool
-  default     = false
-  description = "Indicates whether metrics should generate summary statistics for called API operations."
-}
+#variable "include_apis" {
+#  type        = bool
+#  default     = false
+#  description = "Indicates whether metrics should generate summary statistics for called API operations."
+#}
 
-variable "hour_metrics_enabled" {
-  type        = bool
-  default     = false
-  description = "Indicates whether hour metrics are enabled for the Queue service."
-}
+#variable "hour_metrics_enabled" {
+#  type        = bool
+#  default     = false
+#  description = "Indicates whether hour metrics are enabled for the Queue service."
+#}
 
-variable "network_rules_enabled" {
-  type        = bool
-  default     = false
-  description = "Whether network rules block is enabled."
-}
+#variable "network_rules_enabled" {
+#  type        = bool
+#  default     = false
+#  description = "Whether network rules block is enabled."
+#}
 
-variable "default_action" {
-  type        = string
-  default     = ""
-  description = "Specifies the default action of allow or deny when no other rules match. Valid options are Deny or Allow."
-}
+#variable "default_action" {
+#  type        = string
+#  default     = ""
+#  description = "Specifies the default action of allow or deny when no other rules match. Valid options are Deny or Allow."
+#}
 
-variable "bypass" {
-  type        = string
-  default     = ""
-  description = "Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of Logging, Metrics, AzureServices, or None."
-}
+#variable "bypass" {
+#  type        = string
+#  default     = ""
+#  description = "Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of Logging, Metrics, AzureServices, or None."
+#}
 
-variable "static_website_enabled" {
-  type        = bool
-  default     = false
-  description = "Whether static website block is enabled."
-}
+#variable "static_website_enabled" {
+#  type        = bool
+#  default     = false
+#  description = "Whether static website block is enabled."
+#}
 
-variable "index_document" {
-  type        = string
-  default     = ""
-  description = "The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive."
-}
+#variable "index_document" {
+#  type        = string
+#  default     = ""
+#  description = "The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive."
+#}
 
-variable "error_404_document" {
-  type        = string
-  default     = ""
-  description = "The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file."
-}
+#variable "error_404_document" {
+#  type        = string
+#  default     = ""
+#  description = "The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file."
+#}
 
 ## Virtual Machine
 
@@ -450,8 +450,9 @@ variable "delete_os_disk_on_termination" {
 }
 
 variable "enable_os_disk_write_accelerator" {
-  description = "Should Write Accelerator be Enabled for this OS Disk? This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`."
+  type        = string
   default     = false
+  description = "Should Write Accelerator be Enabled for this OS Disk? This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`."
 }
 
 variable "delete_data_disks_on_termination" {
@@ -460,17 +461,17 @@ variable "delete_data_disks_on_termination" {
   description = "Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to false."
 }
 
-variable "license_type" {
-  type        = string
-  default     = "Windows_Client"
-  description = "Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are Windows_Client and Windows_Server."
-}
+#variable "license_type" {
+#  type        = string
+#  default     = "Windows_Client"
+#  description = "Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are Windows_Client and Windows_Server."
+#}
 
-variable "linux_enabled" {
-  type        = bool
-  default     = false
-  description = "Whether linux block is enabled."
-}
+#variable "linux_enabled" {
+#  type        = bool
+#  default     = false
+#  description = "Whether linux block is enabled."
+#}
 
 variable "disable_password_authentication" {
   type        = bool
@@ -478,15 +479,15 @@ variable "disable_password_authentication" {
   description = "Specifies whether password authentication should be disabled."
 }
 
-variable "file_path" {
-  type        = string
-  default     = "~/.ssh/id_rsa.pub"
-  description = "The Public SSH Key which should be written to the path defined above."
-}
+#variable "file_path" {
+#  type        = string
+#  default     = "~/.ssh/id_rsa.pub"
+#  description = "The Public SSH Key which should be written to the path defined above."
+#}
 
 variable "username" {
   type        = string
-  default     = ""
+  default     = "krishna"
   description = "The linux user name."
 }
 
@@ -496,49 +497,53 @@ variable "windows_enabled" {
   description = "Whether windows block is enabled."
 }
 
-variable "provision_vm_agent" {
-  type        = bool
-  default     = false
-  description = "Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to false."
-}
+#variable "provision_vm_agent" {
+#  type        = bool
+#  default     = false
+#  description = "Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to false."
+#}
 
-variable "os_disk_storage_account_type" {
-  description = "The Type of Storage Account which should back this the Internal OS Disk. Possible values include Standard_LRS, StandardSSD_LRS and Premium_LRS."
-  default     = "StandardSSD_LRS"
-}
+#variable "os_disk_storage_account_type" {
+#  type = string
+#  description = "The Type of Storage Account which should back this the Internal OS Disk. Possible values include Standard_LRS, StandardSSD_LRS and Premium_LRS."
+#  default     = "StandardSSD_LRS"
+#}
 
-variable "disk_encryption_set_id" {
-  description = "The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault"
-  default     = null
-}
+#variable "disk_encryption_set_id" {
+#  type        = string
+#  description = "The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault"
+#  default     = null
+#}
 
-variable "additional_unattend_content" {
-  description = "The XML formatted content that is added to the unattend.xml file for the specified path and component."
-  default     = null
-}
+#variable "additional_unattend_content" {
+#  type = string
+#  description = "The XML formatted content that is added to the unattend.xml file for the specified path and component."
+#  default     = null
+#}
 
-variable "additional_unattend_content_setting" {
-  description = "The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`"
-  default     = null
-}
+#variable "additional_unattend_content_setting" {
+#  type = string
+#  description = "The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`"
+#  default     = null
+#}
 
-variable "enable_automatic_upgrades" {
-  type        = bool
-  default     = false
-  description = "Are automatic updates enabled on this Virtual Machine? Defaults to false."
-}
+#variable "enable_automatic_upgrades" {
+#  type        = bool
+#  default     = false
+#  description = "Are automatic updates enabled on this Virtual Machine? Defaults to false."
+#}
 
-variable "timezone" {
-  type        = string
-  default     = ""
-  description = "Specifies the time zone of the virtual machine."
-}
+#variable "timezone" {
+#  type        = string
+#  default     = ""
+#  description = "Specifies the time zone of the virtual machine."
+#}
 
-variable "protocol" {
-  type        = string
-  default     = ""
-  description = "Specifies the protocol of listener. Possible values are HTTP or HTTPS."
-}
+#variable "protocol" {
+#  type        = string
+#  default     = ""
+#  description = "Specifies the protocol of listener. Possible values are HTTP or HTTPS."
+#}
 
 variable "certificate_url" {
   type        = string
@@ -546,29 +551,29 @@ variable "certificate_url" {
   description = "The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the vault_certificates block within the os_profile_secrets block."
 }
 
-variable "pass" {
-  type        = string
-  default     = "oobeSystem"
-  description = "Specifies the name of the pass that the content applies to. The only allowable value is oobeSystem."
-}
+#variable "pass" {
+#  type        = string
+#  default     = "oobeSystem"
+#  description = "Specifies the name of the pass that the content applies to. The only allowable value is oobeSystem."
+#}
 
-variable "component" {
-  type        = string
-  default     = "Microsoft-Windows-Shell-Setup"
-  description = "Specifies the name of the component to configure with the added content. The only allowable value is Microsoft-Windows-Shell-Setup."
-}
+#variable "component" {
+#  type        = string
+#  default     = "Microsoft-Windows-Shell-Setup"
+#  description = "Specifies the name of the component to configure with the added content. The only allowable value is Microsoft-Windows-Shell-Setup."
+#}
 
-variable "setting_name" {
-  type        = string
-  default     = ""
-  description = "Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon."
-}
+#variable "setting_name" {
+#  type        = string
+#  default     = ""
+#  description = "Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon."
+#}
 
-variable "content" {
-  type        = string
-  default     = ""
-  description = "Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component."
-}
+#variable "content" {
+#  type        = string
+#  default     = ""
+#  description = "Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component."
+#}
 
 variable "addtional_capabilities_enabled" {
   type        = bool
@@ -602,25 +607,27 @@ variable "os_profile_enabled" {
 
 variable "admin_username" {
   type        = string
-  default     = ""
+  default     = "krishna"
   description = "Specifies the name of the local administrator account."
 }
 
 variable "source_image_id" {
+  type        = string
   description = "The ID of an Image which each Virtual Machine should be based on"
   default     = null
 }
 
 variable "admin_password" {
   type        = string
-  default     = ""
+  default     = "password123"
   description = "The password associated with the local administrator account."
 }
 
-variable "windows_distribution_name" {
-  default     = "windows2019dc"
-  description = "Variable to pick an OS flavour for Windows based VM. Possible values include: winserver, wincore, winsql"
-}
+#variable "windows_distribution_name" {
+#  type        = string
+#  default     = "windows2019dc"
+#  description = "Variable to pick an OS flavour for Windows based VM. Possible values include: winserver, wincore, winsql"
+#}
 
 variable "vault_enabled" {
   type        = bool
@@ -640,15 +647,17 @@ variable "is_vm_linux" {
   description = "Create Linux Virtual Machine."
 }
 
-variable "enable_boot_diagnostics" {
-  description = "Should the boot diagnostics enabled?"
-  default     = false
-}
+#variable "enable_boot_diagnostics" {
+#  type        = string
+#  description = "Should the boot diagnostics enabled?"
+#  default     = false
+#}
 
-variable "windows_protocol" {
-  description = "Specifies the protocol of winrm listener. Possible values are `Http` or `Https`"
-  default     = null
-}
+#variable "windows_protocol" {
+#  type        = string
+#  description = "Specifies the protocol of winrm listener. Possible values are `Http` or `Https`"
+#  default     = null
+#}
 
 variable "source_vault_id" {
   type        = string
@@ -734,15 +743,15 @@ variable "managed_disk_id" {
   description = "Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the create_option must be set to Attach."
 }
 
-variable "data_disks" {
-  description = "Managed Data Disks for azure viratual machine"
-  type = list(object({
-    name                 = string
-    storage_account_type = string
-    disk_size_gb         = number
-  }))
-  default = []
-}
+#variable "data_disks" {
+#  description = "Managed Data Disks for azure viratual machine"
+#  type = list(object({
+#    name                 = string
+#    storage_account_type = string
+#    disk_size_gb         = number
+#  }))
+#  default = []
+#}
 
 variable "managed_disk_type" {
   type        = string

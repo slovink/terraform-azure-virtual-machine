@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 module "resource_group" {
-  source  = "git::git@github.com:slovink/terraform-azure-resource-group.git"
+  source = "git::git@github.com:slovink/terraform-azure-resource-group.git?ref=1.0.0"
 
   name        = "app-win-vm"
   environment = "test"
@@ -12,7 +12,7 @@ module "resource_group" {
 }
 
 module "vnet" {
-  source  = "git::git@github.com:slovink/terraform-azure-vnet.git"
+  source = "git::git@github.com:slovink/terraform-azure-vnet.git?ref=1.0.0"
 
   name                = "app"
   environment         = "test"
@@ -24,7 +24,7 @@ module "vnet" {
 }
 
 module "subnet" {
-  source  = "git::git@github.com:slovink/terraform-azure-subnet.git"
+  source = "git::git@github.com:slovink/terraform-azure-subnet.git?ref=1.0.0"
 
   name                 = "app"
   environment          = "test"
@@ -50,7 +50,7 @@ module "subnet" {
 }
 
 module "security_group" {
-  source  = "git::git@github.com:slovink/terraform-azure-network-security-group.git"
+  source = "git::git@github.com:slovink/terraform-azure-network-security-group.git?ref=1.0.0"
   ## Tags
   name        = "app"
   environment = "test"
